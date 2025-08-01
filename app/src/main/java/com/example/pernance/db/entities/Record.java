@@ -12,20 +12,11 @@ import com.example.pernance.db.types.FlowType;
 
 import java.util.Date;
 
-@Entity(tableName = "RecordTable",
-    foreignKeys = @ForeignKey(
-            entity = User.class,
-            parentColumns = "Id",
-            childColumns = "UserId",
-            onDelete = ForeignKey.CASCADE
-    ))
+@Entity(tableName = "RecordTable")
 public class Record {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "Id")
     private int id;
-
-    @ColumnInfo(name = "UserId")
-    private int userId;
 
     @ColumnInfo(name = "FlowType")
     @TypeConverters(FlowTypeConverter.class)
@@ -47,14 +38,6 @@ public class Record {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public FlowType getFlowType() {

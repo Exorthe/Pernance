@@ -13,8 +13,8 @@ import java.util.List;
 
 @Dao
 public interface RecordDao {
-    @Query("SELECT * FROM RecordTable WHERE UserId = :userId")
-    LiveData<List<Record>> getAllRecordByUser(int userId);
+    @Query("SELECT * FROM RecordTable")
+    LiveData<List<Record>> getAllRecords();
 
     @Insert
     void addRecord(Record record);
